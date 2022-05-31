@@ -3,10 +3,12 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.linear_model import LinearRegression
-from data import get_data , clean_data
-from encoders import  TimeFeaturesEncoder , DistanceTransformer
-from utils import compute_rmse
 from sklearn.model_selection import train_test_split
+from TaxiFareModel.data import get_data , clean_data
+from TaxiFareModel.encoders import  TimeFeaturesEncoder , DistanceTransformer
+from TaxiFareModel.utils import compute_rmse
+
+
 class Trainer():
     def __init__(self, X, y):
         """
@@ -71,4 +73,4 @@ if __name__ == "__main__":
     trainer = Trainer(X_train,y_train)
     trainer.run()
     # evaluate
-    trainer.evaluate(X_val,y_val)
+    print(trainer.evaluate(X_val,y_val))
